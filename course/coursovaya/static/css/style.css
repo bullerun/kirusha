@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css?family=Cookie');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+.cookie-reg {
+  font-family: 'Cookie', cursive;
+  font-weight: 400;
+}
+.opn-reg {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+.opn-bold {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+}
+/*base color*/
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #007bff;
+}
+/*main page*/
+header {
+  background: #333333 url(../img/main-bg2.jpg) no-repeat;
+  background-size: cover;
+  min-height: 600px;
+  height: 100vh;
+}
+.main-head {
+  background-color: rgba(255, 255, 255, 0.9);
+  min-height: 60px;
+}
+.main-logo {
+  margin: 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  color: #007bff;
+  font-size: 28px;
+  text-align: center;
+}
+.main-logo a {
+  color: #007bff;
+}
+.main-logo a:hover {
+  text-decoration: none;
+}
+.main-logo span {
+  color: #007bff;
+}
+.nav {
+  margin-top: 40px;
+  margin-left: 15px;
+}
+.nav-list {
+  list-style: none;
+  margin-bottom: 0px;
+  margin-right: 10px;
+}
+.nav-list-item {
+  display: inline;
+  margin-right: 10px;
+}
+.nav-list-item a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333333;
+  font-weight: bold;
+}
+.nav-list-item a:hover {
+  font-weight: bold;
+}
+/*section page2*/
+#page2 {
+  background: #cccccc url(../img/page3/page3-bg.png) no-repeat;
+  background-size: cover;
+  padding-top: 65px;
+  padding-bottom: 90px;
+}
+.page2-text {
+  margin-bottom: 30px;
+}
+.page2-text h2 {
+  color: #993333;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+.page2-text p {
+  padding: 0px 40px;
+  font-size: 18px;
+}
+.page2-range-box {
+  margin: 0 auto;
+  padding-bottom: 30px;
+  width: 162px;
+  height: 162px;
+  border: 1px solid #333333;
+  text-align: center;
+}
+.page2-range-box a:hover {
+  text-decoration: none;
+}
+.page2-range-box img {
+  width: 160px;
+  height: 160px;
+}
+.page2-range-box p {
+  font-size: 15px;
+  color: #993333;
+}
+.page2-range-box p:hover {
+  font-weight: bold;
+}
+/*section page3*/
+#page3 {
+  background: #cccccc url(../img/page3/page3-bg.png) no-repeat;
+  background-size: cover;
+  padding-top: 65px;
+  padding-bottom: 60px;
+}
+p.page3 {
+  text-align: justify;
+  font-size: 16px;
+}
+p.page3 a {
+  text-decoration: underline;
+  color: #000033;
+}
+/*section page4*/
+#page4 {
+  background: #cccccc url(../img/page3/page3-bg.png) no-repeat;
+  background-size: cover;
+  padding-top: 65px;
+  padding-bottom: 60px;
+}
+.page4-range-box {
+  background-color: #FFF;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+  width: 500px;
+  height: 500px;
+  border: 1px solid #ccc;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.page4-range-box h4 {
+  font-weight: bold;
+  font-size: 20px;
+}
+.page4-range-box p {
+  text-align: justify;
+  font-size: 16px;
+}
+/*section page5*/
+#page5 {
+  background: #cccccc url(../img/page3/page3-bg.png) no-repeat;
+  background-size: cover;
+  padding-top: 65px;
+  padding-bottom: 60px;
+}
+.page5-range-box {
+  background-color: #FFF;
+  margin: 8px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.page5-range-box h4 {
+  text-align: center;
+  font-weight: bold;
+}
+.page5-range-box p {
+  padding-top: 0;
+  font-size: 14px;
+  margin-right: 5px;
+}
+.page5-range-box img {
+  margin: 0 auto;
+  margin: 0 5px;
+}
+/*section page6*/
+#page6 {
+  background: #cccccc url(../img/page3/page3-bg.png) no-repeat;
+  background-size: cover;
+  padding-top: 65px;
+  padding-bottom: 60px;
+}
+.page6-range-box {
+  background-color: #FFF;
+  margin: 8px auto;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.page6-range-box h4 {
+  text-align: center;
+  font-weight: bold;
+}
+.auth-main-button {
+  position: absolute;
+  top: 10px; /* Отступ от верхней границы шапки */
+  right: 100px; /* Отступ от правой границы */
+  padding: 10px 20px; /* Внутренние отступы кнопки */
+  background-color: #007bff; /* Цвет фона кнопки */
+  color: #fff; /* Цвет текста */
+  border: none; /* Убираем границу */
+  border-radius: 5px; /* Скругленные углы */
+  font-size: 14px; /* Размер шрифта */
+  cursor: pointer; /* Изменяем курсор при наведении */
+  transition: background-color 0.3s ease; /* Анимация при наведении */
+}
+.auth-main-button:hover {
+  background-color: #0056b3; /* Цвет фона при наведении */
+}
+.auth-button {
+  position: absolute;
+  top: 10px; /* Отступ от верхней границы шапки */
+  right: 10px; /* Отступ от правой границы */
+  padding: 10px 20px; /* Внутренние отступы кнопки */
+  background-color: #007bff; /* Цвет фона кнопки */
+  color: #fff; /* Цвет текста */
+  border: none; /* Убираем границу */
+  border-radius: 5px; /* Скругленные углы */
+  font-size: 14px; /* Размер шрифта */
+  cursor: pointer; /* Изменяем курсор при наведении */
+  transition: background-color 0.3s ease; /* Анимация при наведении */
+}
+.auth-button:hover {
+  background-color: #0056b3; /* Цвет фона при наведении */
+}
+
+/*footer*/
+#footer {
+}
+p.copyright {
+  margin-top: 20px;
+}
