@@ -1,0 +1,7 @@
+<h2>Подтверждение Email</h2>
+<form method="post">
+    {% csrf_token %}
+    <label>Введите код подтверждения:</label>
+    <input type="text" name="verification_code" required>
+    <button type="submit">Подтвердить</button>
+</form>

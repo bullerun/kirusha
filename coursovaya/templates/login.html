@@ -1,0 +1,49 @@
+<h2>Вход</h2>
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Войти по логину и паролю</button>
+</form>
+
+<h3>Или войдите с помощью FaceID</h3>
+<button onclick="loginWithFaceID()">Войти по FaceID</button>
+
+<script>
+    async function loginWithFaceID() {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({video: true});
+            const video = document.createElement('video');
+            video.srcObject = stream;
+            video.play();
+
+            setTimeout(async () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                canvas.getContext('2d').drawImage(video, 0, 0);
+
+                const imageBase64 = canvas.toDataURL('image/png').split(',')[1];
+
+                const response = await fetch("{% url 'faceid_login' %}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: new URLSearchParams({face_image: imageBase64})
+                });
+
+                const data = await response.json();
+                if (data.status === "success") {
+                    window.location.href = "{% url 'index' %}";
+                } else {
+                    alert(data.message);
+                }
+
+                stream.getTracks().forEach(track => track.stop()); // Останавливаем камеру
+            }, 3000);  // Снимаем изображение через 3 секунды
+        } catch (error) {
+            console.error("Ошибка при получении изображения FaceID:", error);
+        }
+    }
+</script>
