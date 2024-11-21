@@ -1,5 +1,4 @@
-from http.server import HTTPServer
-from idlelib.mainmenu import menudefs
+from django.core.files.base import ContentFile
 from uuid import uuid4
 
 from django.conf import settings
@@ -10,10 +9,11 @@ from django.core.mail import send_mail
 from django.http import HttpResponse, JsonResponse
 from django.http import HttpResponseNotFound
 from django.shortcuts import render, get_object_or_404, redirect
-
+import base64
 from coursovaya.forms import RegistrationForm, LoginForm
-from coursovaya.models import UserRegistration
-
+from coursovaya.models import UserRegistration, Log
+from coursovaya.utils import classify_face
+import face_recognition_models
 
 # Create your views here.
 
@@ -80,6 +80,7 @@ def register_view(request):
                 [user.email],
                 fail_silently=False,
             )
+
             return redirect("check_verification", user_id=user.id)
     else:
         form = RegistrationForm()
@@ -128,6 +129,20 @@ def login_view(request):
     return render(request, "login.html", {"form": form})
 
 
+def get_user_by_face(image_data: str):
+
+    decoded_file = base64.b64decode(image_data)
+    x = Log()
+    x.photo.save('upload.png', ContentFile(decoded_file))
+    x.save()
+    res = classify_face(x.photo.path)
+    if res:
+        user_exists = User.objects.filter(username=res).exists()
+        if user_exists:
+            return User.objects.get(username=res)
+    return None
+
+
 def faceid_login(request):
     if request.method == "POST":
         # Предполагаем, что фронтенд отправляет изображение в формате Base64
@@ -135,8 +150,7 @@ def faceid_login(request):
 
         # Пример обработки: сравнить изображение с базой данных лиц пользователей
         # Здесь вам нужно подключить алгоритм для сравнения лиц
-        # user = get_user_by_face(image_data)  # Этот метод должен проверять лицо пользователя и возвращать объект User, если найдено совпадение.
-        user = authenticate(request, username=image_data, password=image_data)
+        user = get_user_by_face(image_data)  # Этот метод должен проверять лицо пользователя и возвращать объект User, если найдено совпадение.
         if user:
             login(request, user)
             return JsonResponse({"status": "success", "message": "Вход по FaceID успешен."})
